@@ -28,7 +28,7 @@ defmodule OpenGraph do
   """
   def fetch(url) do
     case HTTPoison.get(url, [],
-           ssl: [{:versions, [:"tlsv1.2"]}],
+           ssl: [{:versions, [:"tlsv1.2"]}, {:verify, :verify_none}],
            follow_redirect: true,
            hackney: [{:force_redirect, true}]
          ) do
